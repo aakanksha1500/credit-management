@@ -2,17 +2,17 @@
 require_once "dbconnect.php";
 session_start();
 
-echo('<table border="1">'."\n");
+
 $stmt = $pdo->query("SELECT * FROM user");
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if(count($rows)>0){
     
 foreach($rows as $row  ) {
    
-    echo(htmlentities($row['id']));
+    echo(htmlentities($row['user_id']));
     
     ?>
-    <?php	echo('<a href="singleuser.php?id='.$row['id'].'">'.htmlentities($row['name']).'</a> ');
+    <?php	echo('<a href="singleuser.php?user_id='.$row['user_id'].'">'.htmlentities($row['user_name']).'</a> ');
 				?>
 <?php
         echo(htmlentities($row['email']));
